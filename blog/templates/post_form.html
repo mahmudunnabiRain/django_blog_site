@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>New Blog Post</title>
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+<div>
+
+    <form method="POST">
+        <fieldset>
+            <legend>Blog Post</legend>
+            {{ form|crispy }}
+        </fieldset>
+    </form>
+
+    <h1>{{object.title}}</h1>
+    <h4 style="text-align:left;"><a href="#">{{object.author}}</a> {{object.date | date:"M d, Y"}}</h4>
+    <p class="ui text container">{{object.text}}</p>
+</div>
+
+{% endblock %}
