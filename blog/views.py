@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import Post
 # Create your views here.
 
 contents =[
@@ -17,14 +17,10 @@ contents =[
 
 def home(request):
     context = {
-        'posts': contents,
-        'title': 'HomePage'
+        'posts': Post.objects.all(), 
     }
     return render(request, 'home.html', context)
 
 def about(request):
     #return HttpResponse('<h1>About</h1>')
-    context = {
-        'title': 'About'
-    }
-    return render(request, 'about.html', context)
+    return render(request, 'about.html')

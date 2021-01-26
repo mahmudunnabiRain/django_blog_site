@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block title %}
+<title>home</title>
+{% endblock %} 
+
+
 {% block body %}
 
     {% for post in posts %}
@@ -8,4 +13,4 @@
                 <p>{{post.text}}</p>
             {% endfor %}
 
-{% endblock body %} 
+{% endblock %} 
