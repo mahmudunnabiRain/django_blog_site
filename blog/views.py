@@ -5,21 +5,23 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 # Create your views here.
 
-contents =[
+contents = [
     {'title': 'Blog Post 1',
-    'author': 'Author 1',
-    'date': '26 January 2021',
-    'text': 'First blog in our project'},
+     'author': 'Author 1',
+     'date': '26 January 2021',
+     'text': 'First blog in our project'},
 
-     {'title': 'Blog Post 2',
-    'author': 'Author 2',
-    'date': '28 January 2021',
-    'text': 'Second blog in our project'}
+    {'title': 'Blog Post 2',
+     'author': 'Author 2',
+     'date': '28 January 2021',
+     'text': 'Second blog in our project'}
 ]
 
+
 def about(request):
-    #return HttpResponse('<h1>About</h1>')
+    # return HttpResponse('<h1>About</h1>')
     return render(request, 'blog/about.html')
+
 
 class PostListView(ListView):
     model = Post
@@ -27,8 +29,10 @@ class PostListView(ListView):
     ordering = ['-date']
     template_name = 'blog/home.html'
 
+
 class PostDetailView(DetailView):
     model = Post
+
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
@@ -37,7 +41,6 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
-
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -54,6 +57,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         else:
             return False
+
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post

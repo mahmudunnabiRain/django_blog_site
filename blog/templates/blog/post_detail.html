@@ -2,22 +2,22 @@
 
 {% block title %}
 <title>Blog Details</title>
-{% endblock %} 
+{% endblock %}
 
 
 {% block body %}
 
-            <div class="border" style="padding: 10px;">
+<div class="border" style="padding: 10px;">
 
-                {% if object.author == user %}
-                <div style="text-align:right">
-                    <a href="{% url 'blog-update' object.id %}" >Edit</a> | <a href="{% url 'blog-delete' object.id %}">Delete</a>
-                </div>
-                {% endif %}
+    {% if object.author == user %}
+    <div style="text-align:right">
+        <a href="{% url 'blog-update' object.id %}">Edit</a> | <a href="{% url 'blog-delete' object.id %}">Delete</a>
+    </div>
+    {% endif %}
 
-                <h2>{{object.title}}</h2>
-                <small style="text-align:left"><a href="#">{{object.author}}</a> {{object.date | date:"M d, Y"}}</small>
-                <p>{{object.text}}</p>
-            </div>
+    <h2>{{object.title}}</h2>
+    <small style="text-align:left"><a href="#">{{object.author}}</a> {{object.date | date:"M d, Y"}}</small>
+    <p>{{object.text}}</p>
+</div>
 
-{% endblock %} 
+{% endblock %}

@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 # Create your models here.
+
+
 class Post(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -14,5 +16,4 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog-detail', kwargs={'pk' : self.pk})
-
+        return reverse('blog-detail', kwargs={'pk': self.pk})
