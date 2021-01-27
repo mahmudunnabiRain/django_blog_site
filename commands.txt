@@ -1,6 +1,6 @@
 python3 manage.py [command]
                     runserver
-                    createapp
+                    startapp
                     makemigrations
                     migrate
                     createsuperuser

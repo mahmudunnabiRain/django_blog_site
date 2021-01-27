@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "blog/base.html" %}
 
 {% block title %}
 <title>New Blog Post</title>
@@ -11,15 +11,16 @@
 <div>
 
     <form method="POST">
+        {% csrf_token %}
         <fieldset>
             <legend>Blog Post</legend>
             {{ form|crispy }}
         </fieldset>
+        <div>
+            <button class="btn btn-info" type="submit">Post</button>
+        </div>
     </form>
 
-    <h1>{{object.title}}</h1>
-    <h4 style="text-align:left;"><a href="#">{{object.author}}</a> {{object.date | date:"M d, Y"}}</h4>
-    <p class="ui text container">{{object.text}}</p>
 </div>
 
 {% endblock %}

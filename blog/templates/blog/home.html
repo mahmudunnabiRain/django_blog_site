@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "blog/base.html" %}
 
 {% block title %}
 <title>home</title>
@@ -8,11 +8,11 @@
 {% block body %}
 
 {% for post in posts %}
-<div class="style=padding: 10px 0px;">
+<div class="border" style=padding:10px>
     <a href="{% url 'blog-detail' post.id %}">
         <h4>{{post.title}}</h4>
     </a>
-    <h6 style="text-align:right;"><a href="#">{{post.author}}</a> {{post.date | date:"M d, Y"}}</h6>
+    <small style="text-align:right;"><a href="#">{{post.author}}</a> {{post.date | date:"M d, Y"}}</small>
     <p>{{post.text|slice:":260"}}</p>
 </div>
 <hr>
