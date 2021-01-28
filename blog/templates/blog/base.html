@@ -10,10 +10,15 @@
     {% endblock %}
 </head>
 
-<body>
-    <div style="padding:30px; background:orange; color:white">
+<body style="background: linear-gradient(to right bottom, #65dfc9, #6cdbeb);">
+
+    <div class="border" style="padding:30px;
+                background:orange;
+                background:linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+                color:black">
+
         <a href="{% url 'blog-home' %}">
-            <h1 style="color:white">Blog-Site</h1>
+            <h1 style="color:rgb(25, 68, 84)">Blog-Site</h1>
         </a>
         <div style="text-align:right;">
             {% if user.is_authenticated %}
